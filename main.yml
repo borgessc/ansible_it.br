@@ -1,0 +1,6 @@
+---
+  - hosts: local
+    roles:
+      - infradeploy
+      - appdeploy
+      - dbdeploy
