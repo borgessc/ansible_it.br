@@ -4,4 +4,4 @@ AMI_IMAGE: "ami-0edcec072887c2caa"
 INSTANCE_TYPE: "t2.micro"
 INSTANCE_GROUP: "ITBR-INFRA-DEMO"
 INSTANCES_NUMBER: 2  
-KEYPAIR_NAME: "itbrdemousr.pem"
+KEYPAIR_NAME: "itbr-demousr"
