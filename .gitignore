@@ -1,1 +1,1 @@
-/group_vars/all/aws-secrets.yml
+group_vars/all/aws-secrets.yml
