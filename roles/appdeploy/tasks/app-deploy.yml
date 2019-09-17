@@ -1,0 +1,19 @@
+---
+
+- name: Deploy WEB APP
+  hosts: itbr-aws-instances
+  gather_facts: true
+  connection: local
+
+
+  tasks:
+
+    - name: Install Web Server 
+      package: 
+        name: "{{ items }}"
+      with_items:
+        - apache2
+        - curl 
+        - python
+      tags:
+        - webserver
