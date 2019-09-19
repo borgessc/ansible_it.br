@@ -12,10 +12,18 @@
           instance-state-name: running
         tags:
           name: "ITBR-INFRA"  
+
     - name: "Delete group by name {{ SG_NAME}}"
       ec2_group:
         name: "{{ SG_NAME }}"
         state: absent
+
+    - name: Delete Dinamic Public IPs from Hosts File
+      lineinfile:
+        path: "hosts"
+        state: absent
+        regexp: '^.*[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
+  
       
     # - ec2:
     #     state: absent

@@ -1,5 +1,7 @@
 ---
   - hosts: local
+  
     roles:
       - infradeploy
+      - web
      
