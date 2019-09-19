@@ -1,0 +1,24 @@
+---
+- name: Terminate tagged instances
+  # hosts: tag_{{ tag_name }}_{{ tag_value }}
+  # execution: ansible-playbook -e tag_name=Name -e tag_value=web_server terminate.yml
+  hosts: local
+  tasks:
+      
+    - name: Destroying the Current Running Instances
+      ec2_instance:
+        state: absent
+        filters:
+          instance-state-name: running
+        tags:
+          name: "ITBR-INFRA"  
+    - name: "Delete group by name {{ SG_NAME}}"
+      ec2_group:
+        name: "{{ SG_NAME }}"
+        state: absent
+      
+    # - ec2:
+    #     state: absent
+    #     region: "{{ AWS_REGION }}"
+    #     instance_ids: "{{ log.instance_id }}"
+    #   delegate_to: localhost
