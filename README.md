@@ -8,5 +8,5 @@ This code will create an instance on your
 
 Use the followed Link to configure the System:
 
-	```[AWS Environment Config]```(https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/)
+	`https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/`
 
