@@ -50,7 +50,7 @@ localhost                  : ok=7    changed=5    unreachable=0    failed=0
 
 **AWS DashBoard**
 
-![AWS-DASHBOARD](AWS-EC2-Dashboard.png)
+![AWS-DASHBOARD](https://github.com/borgessc/ansible_it.br/blob/master/images/AWS-EC2-Dashboard.png)
 
 # Destroying the Test Environment
 
