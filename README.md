@@ -15,7 +15,7 @@ Use the followed Link to configure the System:
 
 To run the Playbook just execute the command line below once you have your AWS account set.
 
-`ansible-playbook -i hosts main.yml`
+**`ansible-playbook -i hosts main.yml`**
 
 Example of output console:
 
@@ -54,7 +54,7 @@ localhost                  : ok=7    changed=5    unreachable=0    failed=0
 
 Once you done with your tests and to avoid to keep consuming AWS resources you can destroy the Instances that you Created, for this just execute:
 
-`ansible-playbook -i hosts destroy_instances.yml`
+**`ansible-playbook -i hosts destroy_instances.yml`**
 
 
 Example of output console
