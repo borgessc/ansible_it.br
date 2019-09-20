@@ -4,14 +4,14 @@
  </head>
  <body>
  </br>
-  <a href=http://{{ ansible_default_ipv4.address }}/index.html>Homepage</a>
+  <a href=http://{{ inventory_hostname }}/index.html>Homepage</a>
  </br>
 <?php 
  Print "Hello, World! I am a web server configured using Ansible and I am : ";
  echo exec('hostname');
  Print  "</BR>";
 echo  "List of Databases: </BR>";
-        {% for host in groups['dbservers'] %}
+        {% for host in groups['itbr-aws-instances'] %}
                 $link = mysqli_connect('{{ hostvars[host].ansible_default_ipv4.address }}', '{{ hostvars[host].dbuser }}', '{{ hostvars[host].upassword }}') or die(mysqli_connect_error($link));
         {% endfor %}
         $res = mysqli_query($link, "SHOW DATABASES;");

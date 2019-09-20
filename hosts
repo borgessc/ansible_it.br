@@ -2,10 +2,11 @@
 localhost ansible_connection=local ansible_python_interpreter=python3.6 gather_facts=false
 
 [itbr-aws-instances]
-13.211.95.128
+54.66.214.38
 
 
 
 [itbr-aws-instances:vars]
-ansible_user=ec2-user
-ansible_ssh_private_key_file="./itbr-demousr.pem"
+ansible_ssh_user=ec2-user
+ansible_ssh_private_key_file=itbr-demousr.pem
+

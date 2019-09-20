@@ -3,5 +3,12 @@
   
     roles:
       - infradeploy
-      # - web
+
+  - name: Deploying Software 
+    hosts: itbr-aws-instances    
+    become: yes
+    roles:
+      - common
+      - web
+      - db
      
