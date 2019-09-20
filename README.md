@@ -80,3 +80,50 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=4    changed=1    unreachable=0    failed=0
 ```  
 
+# Errors and Troubleshooting
+
+
+
+**If you face these issues please follow the resolution below.**
+
+_Error #1_
+
+```
+52.63.7.124 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Connection closed by 52.63.7.124 port 22",
+    "unreachable": true
+}
+```
+**Solution for #1**
+
+Create a file `ansible.cfg` on project root folder with this content. 
+```
+[defaults]
+private_key_file=/path/of/your/key-file.pem
+```
+
+
+_Error #2_
+
+```
+52.63.7.124 | FAILED! => {
+    "changed": false,
+    "module_stderr": "Shared connection to 52.63.7.124 closed.\r\n",
+    "module_stdout": "/bin/sh: 1: /usr/bin/python: not found\r\n",
+    "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error",
+    "rc": 127
+}
+```
+**Solution for #2**
+
+Install python on target Machine, for example 
+
+if you have python3 installed just create a softlink for that binary.
+
+` ln -s /usr/bin/python3 /usr/bin/python `
+
+**or**
+
+` apt install python `
+
