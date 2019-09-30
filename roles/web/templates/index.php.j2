@@ -1,3 +1,83 @@
+body {
+        font-family: 'lato', sans-serif;
+      }
+      .container {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      
+      h2 {
+        font-size: 26px;
+        margin: 20px 0;
+        text-align: center;
+        small {
+          font-size: 0.5em;
+        }
+      }
+      
+      .responsive-table {
+        li {
+          border-radius: 3px;
+          padding: 25px 30px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 25px;
+        }
+        .table-header {
+          background-color: #95A5A6;
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 0.03em;
+        }
+        .table-row {
+          background-color: #ffffff;
+          box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+        }
+        .col-1 {
+          flex-basis: 10%;
+        }
+        .col-2 {
+          flex-basis: 40%;
+        }
+        .col-3 {
+          flex-basis: 25%;
+        }
+        .col-4 {
+          flex-basis: 25%;
+        }
+        
+        @media all and (max-width: 767px) {
+          .table-header {
+            display: none;
+          }
+          .table-row{
+            
+          }
+          li {
+            display: block;
+          }
+          .col {
+            
+            flex-basis: 100%;
+            
+          }
+          .col {
+            display: flex;
+            padding: 10px 0;
+            &:before {
+              color: #6C7A89;
+              padding-right: 10px;
+              content: attr(data-label);
+              flex-basis: 50%;
+              text-align: right;
+            }
+          }
+        }
+      }
+
 <html>
  <head>
   <title>Ansible Application</title>
@@ -10,6 +90,7 @@
  Print "Hello, World! I am a web server configured using Ansible and I am : ";
  echo exec('hostname');
  Print  "</BR>";
+ 
 echo  "List of Databases: </BR>";
         {% for host in groups['itbr-aws-instances'] %}
                 $link = mysqli_connect('{{ hostvars[host].ansible_default_ipv4.address }}', '{{ hostvars[host].dbuser }}', '{{ hostvars[host].upassword }}') or die(mysqli_connect_error($link));
@@ -17,20 +98,29 @@ echo  "List of Databases: </BR>";
         $res = mysqli_query($link, "SHOW DATABASES;");
         while ($row = mysqli_fetch_assoc($res)) {
                 ?>
-                <tr>
-                        <td>
-                        <table align="center" bgcolor="#d53333" border="0" cellpadding="0" cellspacing="0" class="white_container" style="-premailer-cellpadding:0; -premailer-cellspacing:0; border-collapse:collapse; margin:0; mso-table-lspace:0; mso-table-rspace:0; background-color: #149233; width:100%;max-width:600px;border-radius:3px 3px; -ms-border-radius:3px 3px; -webkit-border-radius:3px 3px; -moz-border-radius:3px 3px;" width="100%">
-                        <tbody>
-                        <tr>
-                           <?php
-                           echo $row['Database'] . "\n";
-                           ?>
-                        </tr>
-                        </tbody>
-                        </table>
-                        </td>
-                </tr>
-                
+                <div class="container">
+                        <h2>Responsive Tables Using LI <small>Triggers on 767px</small></h2>
+                        <ul class="responsive-table">
+                          <li class="table-header">
+                            <div class="col col-1">Database Name</div>
+                            <div class="col col-2">Tables</div>
+                          </li>
+                          <li class="table-row">
+                            <div class="col col-1" data-label="Job Id">
+                               <?php
+                               echo $row['Database'] . "\n";
+                               ?>
+                            </div>
+                            <div class="col col-2" data-label="Customer Name">
+                                        <?php
+                                        echo $row['Database'] . "\n";
+                                        ?>
+                            </div>
+                           
+                          </li>
+                        
+                        </ul>
+                </div>
                 <?php
         }
 ?>
