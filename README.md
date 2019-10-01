@@ -57,7 +57,7 @@ localhost                  : ok=7    changed=5    unreachable=0    failed=0
 
 **# Terminate every running instance in a region. Use with EXTREME caution.**
 
-<p style="color:red;">**`Don't Use this Playbook in Production Environment`**</p>
+**<p style="color:red;">`Don't Use this Playbook in Production Environment`</p>**
 
 Once you done with your tests and to avoid to keep consuming AWS resources you can destroy the Instances that you Created, for this just execute:
 
