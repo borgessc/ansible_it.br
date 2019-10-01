@@ -54,6 +54,11 @@ localhost                  : ok=7    changed=5    unreachable=0    failed=0
 
 # Destroying the Test Environment
 
+
+**# Terminate every running instance in a region. Use with EXTREME caution.**
+
+**`Don't Use this Playbook in Production Environment`**
+
 Once you done with your tests and to avoid to keep consuming AWS resources you can destroy the Instances that you Created, for this just execute:
 
 **`ansible-playbook -i hosts destroy_instances.yml`**
